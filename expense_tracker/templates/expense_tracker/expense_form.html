@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href={% url "home" %}>Go back</a>
 <h1>Tagasubaybay ng Gastos</h1>
+<a href={% url "home" %}>Go back</a>
 <h2>Add Expense</h2>
 <form method="post" novalidate>
 	{% csrf_token %}

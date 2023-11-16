@@ -6,7 +6,7 @@ class Expense(models.Model):
     name = models.CharField(max_length=100, blank=False)
     amount = models.DecimalField(
         blank=False,
-        default=0,
+        default=100.0,
         decimal_places=2,
         max_digits=10,
     )
