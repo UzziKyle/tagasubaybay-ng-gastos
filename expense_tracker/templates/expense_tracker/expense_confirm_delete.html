@@ -7,9 +7,9 @@
 <form method='POST'>
     {% csrf_token %}
     <p>Are you sure you want to delete "{{ expense.name }}"?</p>
-    <div>
+    <div class='btn-container'>
         <button type='submit'>Yes</button>
-        <a href='{% url "home" %}'>No</a>
+        <a href='{% url "home" %}'><button type='button'>No</a>
     </div>
 </form>
 {% endblock  %}
