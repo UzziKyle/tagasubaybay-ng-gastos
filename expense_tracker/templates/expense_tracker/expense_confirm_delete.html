@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Tagasubaybay ng Gastos</h1>
+<h2>Delete Expense</h2>
+
+<form method='POST'>
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ expense.name }}"?</p>
+    <div>
+        <button type='submit'>Yes</button>
+        <a href='{% url "home" %}'>No</a>
+    </div>
+</form>
+{% endblock  %}

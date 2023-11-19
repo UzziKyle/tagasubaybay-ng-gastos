@@ -2,19 +2,21 @@
 
 {% block content%}
 <h1>Tagasubaybay ng Gastos</h1>
-<a href='{% url 'add-expense'%}'>Add Expense</a>
+<a href='{% url 'expense-add'%}'>Add Expense</a>
 <h2>Expenses</h2>
 <table>
     <tr>
         <th>Name</th>
         <th>Amount</th>
-        {% comment %} <th>Date</th> {% endcomment %}
+        <th>Actions</th>
     </tr>
 {% for expense in expenses  %}
     <tr>
-        <th>{{ expense.name }}</th>
-        <th>{{ expense.amount }}</th>
-        {% comment %} <th>{{ expense.date }}</th> {% endcomment %}
+        <td>{{ expense.name }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>
+            <a href='{% url 'expense-edit' expense.id %}'><button name='edit'>Edit</button></a>
+            <a href='{% url 'expense-delete' expense.id %}'><button name='delete'>Delete</button></a>
     </tr>
 {% endfor %}
 </table>

@@ -5,3 +5,4 @@ class ExpenseForm(ModelForm):
     class Meta:
         model = Expense
         fields = ['name', 'amount', 'date']
+        

@@ -3,8 +3,8 @@
 {% block content %}
 <h1>Tagasubaybay ng Gastos</h1>
 <a href={% url "home" %}>Go back</a>
-<h2>Add Expense</h2>
-<form method="post" novalidate>
+<h2>{% if id %} Edit {% else %} Add {% endif %} Expense</h2>
+<form method="POST" novalidate>
 	{% csrf_token %}
 	{{ form.as_p }}
 	<input type="submit" value="Save" />
