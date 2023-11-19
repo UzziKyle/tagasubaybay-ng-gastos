@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Expense
 from .forms import ExpenseForm
 
 # Create your views here.
+@login_required
 def home(request):
     expenses = Expense.objects.all()
     context = {'expenses': expenses}
     return render(request, 'expense_tracker/home.html', context)
 
 
+@login_required
 def add_expense(request):
     context = {}
     if request.method == 'GET':
@@ -26,8 +29,9 @@ def add_expense(request):
             context['form'] = form
             messages.error(request, 'Please correct the following errors: ')
             return render(request, 'expense_tracker/expense_form.html',  context)
+  
         
-        
+@login_required   
 def edit_expense(request, id):
     context = {}
     expense = get_object_or_404(Expense, id=id)
@@ -51,7 +55,8 @@ def edit_expense(request, id):
             messages.error(request, 'Please correct the following errors:')
             return render(request, 'expense_tracker/expense_form.html', context)
     
-    
+  
+@login_required  
 def delete_expense(request, id):
     context = {}
     expense = get_object_or_404(Expense, pk=id)

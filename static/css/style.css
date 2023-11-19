@@ -41,6 +41,7 @@ h2 {
 }
 
 a {
+    display: inline-block;
     color: black;
 }
 

@@ -17,7 +17,20 @@
                 </div>
             {% endfor %}
         {% endif %}
-        {% block content %}
-        {% endblock %}
+        <header>
+            {% if request.user.is_authenticated %}
+                <span>Hi, {{ request.user.username | title}} ||</span>
+                <a href="{% url "logout" %}">logout</a>
+            {% else %}
+                <a href="{% url "login" %}">login</a>
+            {% endif %}
+        </header>
+        <main>
+            {% block title %}
+                <h1>Tagasubaybay ng Gastos</h1>
+            {% endblock title %}
+            {% block content %}
+            {% endblock %}
+        </main>
     </body>
 </html>
