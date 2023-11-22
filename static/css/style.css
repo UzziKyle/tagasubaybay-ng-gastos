@@ -30,6 +30,7 @@ h2 {
     width: fit-content;
     border: 2px solid black;
     margin-left: .5rem;
+    margin-bottom: 1rem;
     box-shadow: -5px 5px gray;
     overflow: hidden;
 }
@@ -106,4 +107,9 @@ button[type='submit'], button[type='button'] {
 
 .errorlist {
     color: lightcoral;
+}
+
+#row_total {
+    /* margin-top: 2rem; */
+    border-top: 2px solid black;
 }

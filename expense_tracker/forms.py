@@ -4,5 +4,5 @@ from .models import Expense
 class ExpenseForm(ModelForm):
     class Meta:
         model = Expense
-        fields = ['name', 'amount', 'date']
+        fields = ['name', 'amount', 'date', 'receipt']
         

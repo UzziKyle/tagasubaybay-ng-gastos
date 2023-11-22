@@ -10,15 +10,20 @@
         <th>Amount</th>
         <th>Actions</th>
     </tr>
-{% for expense in expenses  %}
-    <tr>
-        <td>{{ expense.name }}</td>
-        <td>{{ expense.amount }}</td>
-        <td>
-            <a id='edit' href='{% url 'expense-edit' expense.id %}'><button name='edit'>Edit</button></a>
-            <a id='delete' href='{% url 'expense-delete' expense.id %}'><button name='delete'>Delete</button></a>
-    </tr>
-{% endfor %}
+{% if expenses %}
+    {% for expense in expenses  %}
+        <tr>
+            <td>{{ expense.name }}</td>
+            <td>{{ expense.amount }}</td>
+            <td>
+                <a id='edit' href='{% url 'expense-edit' expense.expense %}'><button name='edit'>Edit</button></a>
+                <a id='delete' href='{% url 'expense-delete' expense.expense %}'><button name='delete'>Delete</button></a>
+        </tr>
+    {% endfor %}
+        <tr id='row_total'>
+            <td>Total:</td>
+            <td>{% if total %}{{ total }}{% else %}0{% endif %}</td>
+{% endif %}
 </table>
 </div>
 {% endblock content %}
